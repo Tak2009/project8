@@ -31,17 +31,6 @@ const renderHello = () => {
 
 renderHello()
 
-// const selectImg = (btn) => {
-//     if (btn.value === "1") {
-//         scriptInsert.innerHTML =  `<img class="img jqPuzzle" src="img/img4.jpg" alt="Puzzle Image"/>
-//         <script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
-//     } else {
-//         scriptInsert.innerHTML =  `<img class="img jqPuzzle" src="img/img1.jpg" alt="Puzzle Image"/>
-//         <script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
-//     }
-// }
-
-
 const selectImg = (btn) => {
     if (btn.value === "1") {
         console.log("check")
@@ -93,3 +82,12 @@ const selectImg = (btn) => {
 // }
 
 
+// const selectImg = (btn) => {
+//     if (btn.value === "1") {
+//         scriptInsert.innerHTML =  `<img class="img jqPuzzle" src="img/img4.jpg" alt="Puzzle Image"/>
+//         <script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
+//     } else {
+//         scriptInsert.innerHTML =  `<img class="img jqPuzzle" src="img/img1.jpg" alt="Puzzle Image"/>
+//         <script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
+//     }
+// }
