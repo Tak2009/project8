@@ -5,7 +5,7 @@ const comments = ["I will ace it no matter what!!", "Seems easy but quite disapp
 const selectedImg = document.querySelector("#img")
 
 
-const renderHello = () => {
+const renderMain = () => {
     const div = document.createElement("div")
     div.className = "instruction"
     const h1 = document.createElement("h1")
@@ -19,6 +19,7 @@ const renderHello = () => {
         const btn = document.createElement("button")
         btn.innerText = "Give this a challenge!"
         btn.value = `${i}`
+        btn.className = "btn-square"
         btn.addEventListener("click", (e)=> {
             selectImg(btn)
         })
@@ -29,65 +30,46 @@ const renderHello = () => {
     root.appendChild(div)
 };
 
-renderHello()
+renderMain()
 
 const selectImg = (btn) => {
     if (btn.value === "1") {
-        console.log("check")
-        selectedImg.src =  ""
-        scriptInsert.src = ""
-    　　 console.log(selectedImg.src)
-        console.log(scriptInsert.src)
         selectedImg.src =  "img/img4.jpg"
-        scriptInsert.src = "src/jquery.jqpuzzle.min.js"
+        // selectedImg.className = "jqPuzzle"
         console.log(selectedImg.src)
-        console.log(scriptInsert.src)
-    } else {
-        console.log("check")
-        selectedImg.src =  ""
-        scriptInsert.src = ""
-        console.log(selectedImg.src)
-        console.log(scriptInsert.src)
+        
+        } else {
         selectedImg.src =  "img/img1.jpg"
-        scriptInsert.src = "src/jquery.jqpuzzle.min.js"
+        // selectedImg.className = "jqPuzzle"
         console.log(selectedImg.src)
-        console.log(scriptInsert.src)
-
     }
+    renderPuzzle()
 }
 
-// const selectImg = (btn) => {
-//     if (btn.value === "1") {
-//         console.log("check")
-//         selectedImg.src =  ""
-//         let d = `<script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
-//     　　 console.log(selectedImg.src)
-//         console.log(scriptInsert.src)
-//         selectedImg.src =  "img/img4.jpg"
-//         scriptInsert.appendChild(d)
-//         console.log(selectedImg.src)
-//         console.log(scriptInsert)
-//     } else {
-//         console.log("check")
-//         selectedImg.src =  ""
-//         let d = `<script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
-//     　　 console.log(selectedImg.src)
-//         console.log(scriptInsert.src)
-//         selectedImg.src =  "img/img1.jpg"
-//         scriptInsert.appendChild(d)
-//         console.log(selectedImg.src)
-//         console.log(scriptInsert)
+const renderPuzzle = () =>{
+    root.innerHTML = ""
+    const scr = document.createElement("script")
+    scr.type = "text/javascript"
+    scr.src = "src/jquery.jqpuzzle.min.js"
+    scriptInsert.appendChild(scr)
+    const h1 = document.createElement("h1")
+    h1.innerText = "ENJOY!!"
+    root.appendChild(h1)
+    const btn2 = document.createElement("button")
+    btn2.innerText = "Back to Main Page"
+    btn2.className = "btn-square"
+    btn2.addEventListener("click", (e)=> {
+        rerenderMain()
+    })
+    root.appendChild(btn2)
+}
 
-//     }
-// }
-
-
-// const selectImg = (btn) => {
-//     if (btn.value === "1") {
-//         scriptInsert.innerHTML =  `<img class="img jqPuzzle" src="img/img4.jpg" alt="Puzzle Image"/>
-//         <script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
-//     } else {
-//         scriptInsert.innerHTML =  `<img class="img jqPuzzle" src="img/img1.jpg" alt="Puzzle Image"/>
-//         <script type="text/javascript" src="src/jquery.jqpuzzle.min.js"></script>`
-//     }
-// }
+const rerenderMain = () => {
+        root.innerHTML = ""
+        debugger
+        scriptInsert.removeChild(scriptInsert.lastChild)
+        const removeElem = document.querySelector('.jqPuzzle'); //生成された<div class="jqPuzzle"/>をがっさり削除
+        removeElem.parentNode.removeChild(removeElem);//生成された<div class="jqPuzzle"/>をがっさり削除
+　　　　　root.insertAdjacentHTML("afterend",`<img id="img" class="jqPuzzle" alt="Puzzle Image Will Be Poped up" />` )//消えてしまうのでこれはたし戻す
+        renderMain()
+}
